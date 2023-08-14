@@ -2,64 +2,185 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="12sp"
-    app:cardCornerRadius="12sp"
-    app:cardElevation="6sp">
+    app:cardElevation="0sp"
+    app:cardCornerRadius="0sp"
+    android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="7sp">
+        android:orientation="vertical"
+        android:padding="12sp">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/add_from_file"
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_bg"
-            android:drawableStart="@drawable/ic_add_from_file"
-            android:padding="20dp"
-            android:layout_marginHorizontal="5dp"
-            android:gravity="center"
-            android:drawableTint="@color/blueee"
-            android:text="@string/add_from_file"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/black"
+            android:text="Select a method to add a Playlist"
+            android:includeFontPadding="false"
+            android:textSize="20sp"
+            android:layout_marginTop="12sp"
+            android:fontFamily="@font/poppins" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/add_from_url"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_add_from_link"
-            android:padding="20dp"
-            android:background="@drawable/btn_bg"
-            android:layout_marginHorizontal="5dp"
-            android:gravity="center"
-            android:layout_marginTop="10sp"
-            android:drawableTint="@color/blueee"
-            android:text="@string/add_from_url"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_from_file" />
+            android:layout_marginVertical="12sp"
+            android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/add_xtream"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:drawableStart="@drawable/ic_add_from_xtream_account"
-            android:padding="20dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginHorizontal="5dp"
-            android:background="@drawable/btn_bg"
-            android:drawableTint="@color/blueee"
-            android:layout_marginTop="10sp"
-            android:text="@string/add_xtream_account"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_from_url" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/add_from_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6sp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="0sp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12sp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="6sp"
+                        android:layout_weight="1"
+                        android:layout_margin="4sp"
+                        app:cardBackgroundColor="@color/cardBg"
+                        app:cardElevation="4sp">
+
+                        <ImageView
+                            android:layout_width="43sp"
+                            android:layout_height="43sp"
+                            app:tint="@color/blueee"
+                            android:layout_gravity="center"
+                            android:layout_margin="6sp"
+                            android:src="@drawable/ic_add_from_file" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_marginTop="6sp"
+                        android:textSize="17sp"
+                        android:text="@string/add_from_file"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/poppins" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/add_from_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6sp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="0sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12sp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="6sp"
+                        android:layout_weight="1"
+                        android:layout_margin="4sp"
+                        app:cardBackgroundColor="@color/cardBg"
+                        app:cardElevation="4sp">
+
+                        <ImageView
+                            android:layout_width="43sp"
+                            android:layout_height="43sp"
+                            app:tint="@color/blueee"
+                            android:layout_gravity="center"
+                            android:layout_margin="6sp"
+                            android:src="@drawable/ic_add_from_link" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginTop="6sp"
+                        android:text="@string/add_from_url"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/poppins" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/add_xtream"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6sp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="0sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12sp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="6sp"
+                        android:layout_weight="1"
+                        android:layout_margin="4sp"
+                        app:cardBackgroundColor="@color/cardBg"
+                        app:cardElevation="4sp">
+
+                        <ImageView
+                            android:layout_width="43sp"
+                            android:layout_height="43sp"
+                            app:tint="@color/blueee"
+                            android:layout_gravity="center"
+                            android:layout_margin="6sp"
+                            android:src="@drawable/ic_add_from_xtream_account" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:layout_marginTop="6sp"
+                        android:text="@string/add_xtream_account"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/poppins" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

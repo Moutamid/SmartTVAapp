@@ -1,6 +1,7 @@
 package com.ixidev.smarttvaapp
 
 import androidx.multidex.MultiDexApplication
+import com.fxn.stash.Stash
 import dagger.hilt.android.HiltAndroidApp
 
 /**
@@ -9,4 +10,10 @@ import dagger.hilt.android.HiltAndroidApp
  * Github : https://github.com/ixiDev
  */
 @HiltAndroidApp
-class SmartTvApp : MultiDexApplication()
+class SmartTvApp : MultiDexApplication(){
+    override fun onCreate() {
+        super.onCreate()
+        Stash.init(this)
+
+    }
+}

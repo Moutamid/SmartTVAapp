@@ -6,9 +6,8 @@
     android:layout_height="wrap_content"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="3dp"
-    android:layout_margin="4sp"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="6dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true"
     app:contentPadding="0dp">
@@ -25,14 +24,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:background="?attr/colorAccent"
             android:padding="5dp"
             android:src="@drawable/ic_playlist_item"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
-            android:tint="@color/blueee" />
+            app:tint="@color/blueee" />
 
         <TextView
             android:id="@+id/playlist_name"
@@ -44,6 +42,7 @@
             android:fontFamily="@font/poppins"
             android:textStyle="bold"
             android:textSize="17sp"
+            android:textColor="@color/blueee"
             android:includeFontPadding="false"
             app:layout_constraintEnd_toStartOf="@+id/refreshBtn"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -74,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:src="@drawable/ic_refresh"
+            android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/playListUrl"
             app:layout_constraintEnd_toStartOf="@id/playlist_check_box"
             app:layout_constraintTop_toTopOf="parent"

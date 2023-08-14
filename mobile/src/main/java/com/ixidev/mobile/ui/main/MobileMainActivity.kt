@@ -1,10 +1,17 @@
 package com.ixidev.mobile.ui.main
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.IntentSender
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
+import android.view.Window
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +34,7 @@ import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.QueryProductDetailsParams
 import com.android.billingclient.api.QueryPurchasesParams
+import com.fxn.stash.Stash
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.InstallStateUpdatedListener
@@ -96,12 +104,35 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
 
         checkUserSubscription()
 
+        if(Stash.getBoolean("FIRST_TIME", true)){
+            showDialog();
+        }
+
         setSupportActionBar(mainBinding.toolbar)
         inAppUpdate()
         setupMenuDrawer(savedInstanceState)
         setupNavController()
         initObservers()
         //enablePlayStoreIAP()
+    }
+
+    private fun showDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.guide_dialog)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(false)
+
+        val close = dialog.findViewById<Button>(R.id.okk)
+        close.setOnClickListener {
+            dialog.dismiss()
+            Stash.put("FIRST_TIME", false)
+        }
+
+        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.setGravity(Gravity.CENTER)
+        dialog.show()
     }
 
     // Yodo1
@@ -157,7 +188,7 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
         navController().addOnDestinationChangedListener { _, destination, _ ->
             val drawerItemTag = when (destination.id) {
                 R.id.homeFragment -> {
-                    mainBinding.toolbar.setNavigationIcon(R.drawable.ic_drawer_menu)
+                    mainBinding.toolbar.setNavigationIcon(R.drawable.menus)
                     mainBinding.toolbar.setNavigationContentDescription(R.string.material_drawer_open)
                     MenuDrawerDi.MenuItemTag.Home
                 }

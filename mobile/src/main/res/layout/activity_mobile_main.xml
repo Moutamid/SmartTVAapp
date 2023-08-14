@@ -13,21 +13,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/toolCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:elevation="5dp"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="@drawable/ic_drawer_menu"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            tools:layout_height="52dp"
-            tools:title="@string/app_name" />
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="?attr/colorPrimary"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="6sp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                android:elevation="0dp"
+                app:navigationIcon="@drawable/menus"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                tools:layout_height="52dp"
+                tools:title="@string/app_name" />
+
+        </androidx.cardview.widget.CardView>
 
         <fragment
             android:id="@+id/mobile_nav_host_fragment"
@@ -39,7 +50,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/toolCard"
             app:navGraph="@navigation/mobile_navigation_graph"
             tools:ignore="FragmentTagUsage" />
 

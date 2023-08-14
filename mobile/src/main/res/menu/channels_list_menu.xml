@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/refresh_play_list"
-        android:icon="@drawable/ic_refresh"
+        android:icon="@drawable/playlist"
         app:showAsAction="always"
         android:title="TODO" />
 

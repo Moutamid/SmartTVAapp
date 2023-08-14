@@ -80,7 +80,7 @@ class MobilePlayListsAdapter(
             bindingView.playListUrl.text = moviesPlayList.fileUrl
             bindingView.playListUrl.isSelected = true
             if (moviesPlayList.current)
-                bindingView.root.setCardBackgroundColor("#8BC34A".toColorInt())
+                bindingView.root.setCardBackgroundColor("#E6E8F5".toColorInt())
             else {
                 bindingView.root.setCardBackgroundColor(
                     getCardBackColor(bindingView.root.context)

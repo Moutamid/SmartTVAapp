@@ -82,7 +82,7 @@ android {
 }
 
 dependencies {
-
+    implementation("com.fxn769:stash:1.3.2")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Deps.kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-common:${Deps.kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Deps.kotlinVersion}")

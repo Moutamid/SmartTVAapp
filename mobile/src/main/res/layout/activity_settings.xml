@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".ui.settings.SettingsActivity">
 
 
@@ -30,9 +30,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="App"
         android:layout_marginStart="12sp"
         android:layout_marginTop="12sp"
+        android:text="App"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -40,12 +40,12 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="8sp"
         android:layout_marginStart="10sp"
         android:layout_marginEnd="10sp"
         app:cardBackgroundColor="@color/cardBg"
-        app:strokeWidth="0sp"
-        app:cardElevation="0sp">
+        app:cardCornerRadius="8sp"
+        app:cardElevation="0sp"
+        app:strokeWidth="0sp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,33 +53,87 @@
             android:orientation="vertical"
             android:padding="12sp">
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/night_mode_switch"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_round_dark_mode_24"
-                android:drawablePadding="20dp"
-                android:onClick="switchDarkMode"
-                android:paddingStart="8sp"
-                android:includeFontPadding="false"
-                android:buttonTint="@color/blueee"
-                android:textSize="16sp"
-                android:text="@string/item_dark_mode"
-                android:drawableTint="@color/blueee"/>
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/cardBg"
+                app:cardElevation="0dp">
 
-            <androidx.appcompat.widget.AppCompatButton
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12sp">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/night_mode_switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/blueee"
+                        android:drawableStart="@drawable/ic_round_dark_mode_24"
+                        android:drawablePadding="20dp"
+                        android:onClick="switchDarkMode"
+                        android:drawableTint="@color/blueee"
+                        android:includeFontPadding="false"
+                        android:text="@string/item_dark_mode"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="20dp"
+                        android:gravity="start|center"
+                        android:text="Switch to dark theme"
+                        android:textSize="14sp"
+                        app:drawableStartCompat="@drawable/ic_round_privacy_tip_24"
+                        app:drawableTint="@color/cardBg" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btn_gdpr"
-                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ad_solid"
-                android:drawablePadding="20dp"
-                android:textSize="16sp"
-                android:drawableTint="@color/blueee"
-                android:gravity="start|center"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="openGdprDialog"
-                android:text="@string/personalized_ads"
-                android:textAllCaps="false" />
+                app:cardBackgroundColor="@color/cardBg"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ad_solid"
+                        android:drawablePadding="20dp"
+                        android:drawableTint="@color/blueee"
+                        android:gravity="start|center"
+                        android:text="@string/personalized_ads"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_round_privacy_tip_24"
+                        android:drawablePadding="20dp"
+                        android:drawableTint="@color/cardBg"
+                        android:gravity="start|center"
+                        android:text="Customize ads based on preferences"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 
@@ -88,9 +142,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Legal Terms"
         android:layout_marginStart="12sp"
         android:layout_marginTop="12sp"
+        android:text="Legal Terms"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -98,53 +152,102 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="8sp"
         android:layout_marginStart="10sp"
         android:layout_marginEnd="10sp"
         app:cardBackgroundColor="@color/cardBg"
-        app:strokeWidth="0sp"
-        app:cardElevation="0sp">
+        app:cardCornerRadius="8sp"
+        app:cardElevation="0sp"
+        app:strokeWidth="0sp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="12sp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="12sp">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btn_privacy"
-                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_round_privacy_tip_24"
-                android:drawablePadding="20dp"
-                android:textSize="16sp"
-                android:gravity="start|center"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="openPrivacy"
-                android:text="@string/privacy_policy"
-                android:drawableTint="@color/blueee"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_gdpr" />
+                app:cardBackgroundColor="@color/cardBg"
+                app:cardElevation="0dp">
 
-            <androidx.appcompat.widget.AppCompatButton
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_round_privacy_tip_24"
+                        android:drawablePadding="20dp"
+                        android:drawableTint="@color/blueee"
+                        android:gravity="start|center"
+                        android:text="@string/privacy_policy"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_round_privacy_tip_24"
+                        android:drawablePadding="20dp"
+                        android:drawableTint="@color/cardBg"
+                        android:gravity="start|center"
+                        android:text="Explore our data usage policies"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btn_closeSub"
-                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_round_privacy_tip_24"
-                android:drawablePadding="20dp"
-                android:textSize="16sp"
-                android:drawableTint="@color/blueee"
-                android:gravity="start|center"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="closeSub"
-                android:text="Cancel Subscription"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_privacy" />
+                app:cardBackgroundColor="@color/cardBg"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_round_privacy_tip_24"
+                        android:drawablePadding="20dp"
+                        android:drawableTint="@color/blueee"
+                        android:gravity="start|center"
+                        android:text="Cancel Subscription"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_round_privacy_tip_24"
+                        android:drawablePadding="20dp"
+                        android:drawableTint="@color/cardBg"
+                        android:gravity="start|center"
+                        android:text="End subscription and billing cycle"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
 
         </LinearLayout>
 

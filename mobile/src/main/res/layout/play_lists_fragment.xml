@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/cardBg"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -18,20 +19,43 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/mobile_playlist_item_layout" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <LinearLayout
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/btn_bg"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
-        android:contentDescription="@string/add_new_playlist"
         android:focusable="true"
-        android:tint="@color/white"
-        android:src="@drawable/ic_action_add_playlist"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:paddingHorizontal="15sp"
+        android:paddingVertical="10sp"
+        android:gravity="center_vertical"
+        android:backgroundTint="@color/blueee">
+
+        <ImageView
+            android:layout_width="28sp"
+            android:layout_height="28sp"
+            android:src="@drawable/round_add_24"
+            android:layout_marginEnd="6sp"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="20dp"
+            android:gravity="start|center"
+            android:padding="10sp"
+            android:text="Add New"
+            android:textSize="18sp"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/playListText"

@@ -11,7 +11,8 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="cardBackgroundColor">@color/cardBg</item>
         <!--  Status bar color.  -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorOnPrimary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="materialDrawerStyle">@style/Theme.Mobile.Drawer</item>
         <item name="materialDrawerHeaderStyle">@style/Widget.MaterialDrawerHeaderStyle</item>
         <item name="android:textViewStyle">@style/TextRegular</item>

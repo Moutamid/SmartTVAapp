@@ -48,6 +48,7 @@ class AddPlayListBottomDialog : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = AddPlaylistDialogFragmentBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
