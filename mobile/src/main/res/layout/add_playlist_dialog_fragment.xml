@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     app:cardElevation="0sp"
     app:cardCornerRadius="0sp"
+    app:cardBackgroundColor="?attr/cardBackgroundColor"
+    android:background="?attr/cardBackgroundColor"
     android:layout_height="wrap_content">
 
 
@@ -16,10 +18,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:text="Select a method to add a Playlist"
             android:includeFontPadding="false"
             android:textSize="20sp"
+            android:textColor="?attr/colorOnSecondary"
             android:layout_marginTop="12sp"
             android:fontFamily="@font/poppins" />
 
@@ -35,7 +37,8 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6sp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/white"
+                android:background="?attr/cardBackgroundColor"
+                app:cardBackgroundColor="?attr/cardBackgroundColor"
                 app:cardElevation="0sp">
 
                 <LinearLayout
@@ -67,7 +70,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/colorOnSecondary"
                         android:gravity="center"
                         android:layout_marginTop="6sp"
                         android:textSize="17sp"
@@ -85,7 +88,8 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6sp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/white"
+                android:background="?attr/cardBackgroundColor"
+                app:cardBackgroundColor="?attr/cardBackgroundColor"
                 app:cardElevation="0sp">
 
                 <LinearLayout
@@ -117,7 +121,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/colorOnSecondary"
                         android:gravity="center"
                         android:textSize="17sp"
                         android:layout_marginTop="6sp"
@@ -135,7 +139,8 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6sp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/white"
+                android:background="?attr/cardBackgroundColor"
+                app:cardBackgroundColor="?attr/cardBackgroundColor"
                 app:cardElevation="0sp">
 
                 <LinearLayout
@@ -167,7 +172,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/colorOnSecondary"
                         android:gravity="center"
                         android:textSize="17sp"
                         android:layout_marginTop="6sp"

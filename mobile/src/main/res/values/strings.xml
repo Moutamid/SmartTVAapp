@@ -43,5 +43,6 @@
     <string name="settings">Settings</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="please_wait">Loading Please Wait</string>
+    <string name="check_our_privacy_policy">Check our <u><strong>Privacy Policy</strong></u></string>
     <string name="add_channels_guide">1 : Open navigation drawer \n\n2 : Click Playlist\n\n3 : Click "Add New" button at the bottom right\n\n4 : Select a method</string>
 </resources>

@@ -30,7 +30,7 @@
         app:boxCornerRadiusBottomEnd="8sp"
         android:hint="@string/anya_name"
         app:hintTextColor="@color/blueee"
-        app:boxBackgroundColor="@color/cardBg"
+        app:boxBackgroundColor="?attr/cardBackgroundColor"
         app:helperTextTextColor="#E53935"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +40,7 @@
             android:id="@+id/m3u_url_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnSecondary"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +55,7 @@
         app:helperText="m3u,m3u8,ts files"
         app:helperTextTextColor="#E53935"
         app:boxStrokeWidth="0sp"
-        app:boxBackgroundColor="@color/cardBg"
+        app:boxBackgroundColor="?attr/cardBackgroundColor"
         app:hintTextColor="@color/blueee"
         app:boxCornerRadiusTopEnd="8sp"
         app:boxCornerRadiusTopStart="8sp"
@@ -68,6 +69,7 @@
             android:id="@+id/m3u_url_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnSecondary"
             android:inputType="textWebEditText" />
 
     </com.google.android.material.textfield.TextInputLayout>

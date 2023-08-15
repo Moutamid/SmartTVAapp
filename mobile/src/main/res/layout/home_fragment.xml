@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/cardBg"
+    android:background="?attr/cardBackgroundColor"
     tools:context=".ui.home.HomeFragment">
 
     <com.ixidev.mobile.ui.common.TagsView
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10sp"
-        android:background="@color/white"
+        android:background="?attr/colorOnPrimary"
         tools:layout_height="20dp" />
 
     <androidx.appcompat.widget.AppCompatTextView

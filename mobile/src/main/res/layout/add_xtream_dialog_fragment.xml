@@ -40,7 +40,7 @@
             app:boxCornerRadiusBottomEnd="8sp"
             app:boxStrokeColor="@color/blueee"
             android:hint="@string/anya_name"
-            app:boxBackgroundColor="@color/cardBg"
+            app:boxBackgroundColor="?attr/cardBackgroundColor"
             app:hintEnabled="true"
             app:hintTextColor="@color/blueee"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +52,7 @@
                 android:id="@+id/xtream_any_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnSecondary"
                 android:ems="15"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -68,7 +69,7 @@
             app:boxCornerRadiusBottomStart="8sp"
             app:boxCornerRadiusBottomEnd="8sp"
             app:boxStrokeColor="@color/blueee"
-            app:boxBackgroundColor="@color/cardBg"
+            app:boxBackgroundColor="?attr/cardBackgroundColor"
             app:hintTextColor="@color/blueee"
             app:helperText="Your xtream server url"
             app:helperTextTextColor="#E53935"
@@ -84,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ems="15"
+                android:textColor="?attr/colorOnSecondary"
                 android:importantForAutofill="no"
                 android:inputType="textUri" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -105,7 +107,7 @@
             app:hintEnabled="true"
             app:hintTextColor="@color/blueee"
             android:inputType="textPersonName"
-            app:boxBackgroundColor="@color/cardBg"
+            app:boxBackgroundColor="?attr/cardBackgroundColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2">
@@ -114,6 +116,7 @@
                 android:id="@+id/xtream_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnSecondary"
                 android:autofillHints="@string/username"
                 android:ems="15"
                 android:inputType="textPersonName"
@@ -136,7 +139,7 @@
             android:hint="@string/password"
             app:hintEnabled="true"
             app:hintTextColor="@color/blueee"
-            app:boxBackgroundColor="@color/cardBg"
+            app:boxBackgroundColor="?attr/cardBackgroundColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
@@ -146,6 +149,7 @@
                 android:id="@+id/xtream_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnSecondary"
                 android:autofillHints="@string/password"
                 android:ems="15"
                 android:inputType="textPassword"

@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="?attr/colorPrimary"
+            app:cardBackgroundColor="?attr/colorOnPrimary"
             app:cardElevation="6dp"
             app:cardCornerRadius="6sp">
 
@@ -29,7 +29,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
+                android:background="?attr/colorOnPrimary"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 android:elevation="0dp"
@@ -63,9 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:backgroundTint="@color/cardBg"
         app:itemBackground="@drawable/et_nav_bg"
-        android:background="@color/white"
+        android:background="?attr/cardBackgroundColor"
         app:itemIconTint="@color/blueee"
         app:drawerLayoutCornerSize="16sp"
         android:fitsSystemWindows="true" />

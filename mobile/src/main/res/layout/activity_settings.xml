@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="?attr/colorPrimaryVariant"
     android:orientation="vertical"
     tools:context=".ui.settings.SettingsActivity">
 
@@ -21,7 +21,9 @@
             android:elevation="5dp"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
+            android:background="?attr/colorOnPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="?attr/colorOnSecondary"
             tools:layout_height="52dp"
             tools:title="@string/settings" />
 
@@ -33,7 +35,7 @@
         android:layout_marginStart="12sp"
         android:layout_marginTop="12sp"
         android:text="App"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -42,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10sp"
         android:layout_marginEnd="10sp"
-        app:cardBackgroundColor="@color/cardBg"
+        app:cardBackgroundColor="?attr/cardBackgroundColor"
         app:cardCornerRadius="8sp"
         app:cardElevation="0sp"
         app:strokeWidth="0sp">
@@ -58,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardBackgroundColor="@color/cardBg"
+                app:cardBackgroundColor="?attr/cardBackgroundColor"
                 app:cardElevation="0dp">
 
                 <LinearLayout
@@ -77,6 +79,7 @@
                         android:onClick="switchDarkMode"
                         android:drawableTint="@color/blueee"
                         android:includeFontPadding="false"
+                        android:textColor="?attr/colorOnSecondary"
                         android:text="@string/item_dark_mode"
                         android:textSize="18sp" />
 
@@ -88,7 +91,7 @@
                         android:text="Switch to dark theme"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_round_privacy_tip_24"
-                        app:drawableTint="@color/cardBg" />
+                        app:drawableTint="?attr/cardBackgroundColor" />
 
                 </LinearLayout>
 
@@ -101,7 +104,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:onClick="openGdprDialog"
-                app:cardBackgroundColor="@color/cardBg"
+                app:cardBackgroundColor="?attr/cardBackgroundColor"
                 app:cardElevation="0dp">
 
                 <LinearLayout
@@ -118,7 +121,7 @@
                         android:drawableTint="@color/blueee"
                         android:gravity="start|center"
                         android:text="@string/personalized_ads"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/colorOnSecondary"
                         android:textSize="18sp" />
 
                     <TextView
@@ -126,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_round_privacy_tip_24"
                         android:drawablePadding="20dp"
-                        android:drawableTint="@color/cardBg"
+                        android:drawableTint="?attr/cardBackgroundColor"
                         android:gravity="start|center"
                         android:text="Customize ads based on preferences"
                         android:textSize="14sp" />
@@ -145,7 +148,7 @@
         android:layout_marginStart="12sp"
         android:layout_marginTop="12sp"
         android:text="Legal Terms"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -154,7 +157,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10sp"
         android:layout_marginEnd="10sp"
-        app:cardBackgroundColor="@color/cardBg"
+        app:cardBackgroundColor="?attr/cardBackgroundColor"
         app:cardCornerRadius="8sp"
         app:cardElevation="0sp"
         app:strokeWidth="0sp">
@@ -172,7 +175,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:onClick="openPrivacy"
-                app:cardBackgroundColor="@color/cardBg"
+                app:cardBackgroundColor="?attr/cardBackgroundColor"
                 app:cardElevation="0dp">
 
                 <LinearLayout
@@ -189,7 +192,7 @@
                         android:drawableTint="@color/blueee"
                         android:gravity="start|center"
                         android:text="@string/privacy_policy"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/colorOnSecondary"
                         android:textSize="18sp" />
 
                     <TextView
@@ -197,7 +200,7 @@
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_round_privacy_tip_24"
                         android:drawablePadding="20dp"
-                        android:drawableTint="@color/cardBg"
+                        android:drawableTint="?attr/cardBackgroundColor"
                         android:gravity="start|center"
                         android:text="Explore our data usage policies"
                         android:textSize="14sp" />
@@ -214,7 +217,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:onClick="closeSub"
-                app:cardBackgroundColor="@color/cardBg"
+                app:cardBackgroundColor="?attr/cardBackgroundColor"
                 app:cardElevation="0dp">
 
                 <LinearLayout
@@ -231,7 +234,7 @@
                         android:drawableTint="@color/blueee"
                         android:gravity="start|center"
                         android:text="Cancel Subscription"
-                        android:textColor="@color/black"
+                        android:textColor="?attr/colorOnSecondary"
                         android:textSize="18sp" />
 
                     <TextView
@@ -239,7 +242,7 @@
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_round_privacy_tip_24"
                         android:drawablePadding="20dp"
-                        android:drawableTint="@color/cardBg"
+                        android:drawableTint="?attr/cardBackgroundColor"
                         android:gravity="start|center"
                         android:text="End subscription and billing cycle"
                         android:textSize="14sp" />

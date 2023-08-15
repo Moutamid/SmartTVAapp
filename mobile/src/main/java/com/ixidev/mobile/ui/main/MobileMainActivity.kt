@@ -52,6 +52,7 @@ import com.ixidev.mobile.R
 import com.ixidev.mobile.databinding.ActivityMobileMainBinding
 import com.ixidev.mobile.di.DrawerItemsProvider
 import com.ixidev.mobile.di.MenuDrawerDi
+import com.ixidev.mobile.ui.SubscribeActivity
 import com.ixidev.mobile.ui.common.SaveSharedPreference
 import com.mikepenz.aboutlibraries.LibsBuilder
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
@@ -72,7 +73,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class
-MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
+MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main) {
 
     private val mainBinding: ActivityMobileMainBinding by viewBinding()
 
@@ -104,7 +105,7 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
 
         checkUserSubscription()
 
-        if(Stash.getBoolean("FIRST_TIME", true)){
+        if (Stash.getBoolean("FIRST_TIME", true)) {
             showDialog();
         }
 
@@ -129,7 +130,10 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
             Stash.put("FIRST_TIME", false)
         }
 
-        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.window?.setGravity(Gravity.CENTER)
         dialog.show()
@@ -322,7 +326,16 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
             MenuDrawerDi.MenuItemTag.StopAds -> {
                 logger.logEvent(EVENT_STOP_ADS)
                 //bp.subscribe(this, "aylik_reklam")
-                subscribeBilling()
+                // TODO subscribeBilling()
+
+                startActivity(
+                    Intent(
+                        this,
+                        SubscribeActivity::class.java
+                    )
+                )
+
+                finish()
             }
 
             MenuDrawerDi.MenuItemTag.Donation -> {
@@ -382,7 +395,7 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
      * Google In App Billing
      * */
 
-    private fun checkUserSubscription(){
+    private fun checkUserSubscription() {
         billingClient?.startConnection(object : BillingClientStateListener {
             override fun onBillingSetupFinished(billingResult: BillingResult) {
                 if (billingResult.responseCode == BillingResponseCode.OK) {
@@ -477,12 +490,14 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
                                 Log.e("TAG", "queryPurchases: PURCHASED")
                                 SaveSharedPreference.setAdsPref(this, false)
                             }
+
                             Purchase.PurchaseState.PENDING -> {
                                 // The subscription was canceled but is still active until the end of the current billing cycle
                                 // Handle accordingly
                                 Log.e("TAG", "queryPurchases: PENDING")
                                 SaveSharedPreference.setAdsPref(this, true)
                             }
+
                             Purchase.PurchaseState.UNSPECIFIED_STATE -> {
                                 // The subscription has expired
                                 // Handle accordingly
@@ -524,11 +539,12 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
         }
     }
 
-    private val acknowledgePurchaseResponseListener: AcknowledgePurchaseResponseListener = AcknowledgePurchaseResponseListener { billingResult ->
-        if(billingResult.responseCode == BillingResponseCode.OK){
-            //Toast.makeText(this, "Subscribed", Toast.LENGTH_SHORT).show()
+    private val acknowledgePurchaseResponseListener: AcknowledgePurchaseResponseListener =
+        AcknowledgePurchaseResponseListener { billingResult ->
+            if (billingResult.responseCode == BillingResponseCode.OK) {
+                //Toast.makeText(this, "Subscribed", Toast.LENGTH_SHORT).show()
+            }
         }
-    }
 
     private fun handlePurchase(purchase: Purchase) {
         // Verify the purchase.
@@ -539,26 +555,29 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main){
             .setPurchaseToken(purchase.purchaseToken)
             .build()
 
-         val listener = ConsumeResponseListener { billingResult, purchaseToken ->
-                 if (billingResult.responseCode == BillingResponseCode.OK) {
-                     // Handle the success of the consume operation.
-                 }
-             }
+        val listener = ConsumeResponseListener { billingResult, purchaseToken ->
+            if (billingResult.responseCode == BillingResponseCode.OK) {
+                // Handle the success of the consume operation.
+            }
+        }
 
-         billingClient?.consumeAsync(consumeParams, listener)
-         if (purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
-             if (!purchase.isAcknowledged) {
-                 val acknowledgePurchaseParams = AcknowledgePurchaseParams.newBuilder()
-                     .setPurchaseToken(purchase.purchaseToken)
-                     .build()
-                 billingClient?.acknowledgePurchase(acknowledgePurchaseParams, acknowledgePurchaseResponseListener)
-                 SaveSharedPreference.setAdsPref(this, false)
-                 Toast.makeText(this, "Subscribed", Toast.LENGTH_SHORT).show()
-             }else{
-                 SaveSharedPreference.setAdsPref(this, false)
-                 Toast.makeText(this, "Already Subscribed", Toast.LENGTH_SHORT).show()
-             }
-         }
+        billingClient?.consumeAsync(consumeParams, listener)
+        if (purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
+            if (!purchase.isAcknowledged) {
+                val acknowledgePurchaseParams = AcknowledgePurchaseParams.newBuilder()
+                    .setPurchaseToken(purchase.purchaseToken)
+                    .build()
+                billingClient?.acknowledgePurchase(
+                    acknowledgePurchaseParams,
+                    acknowledgePurchaseResponseListener
+                )
+                SaveSharedPreference.setAdsPref(this, false)
+                Toast.makeText(this, "Subscribed", Toast.LENGTH_SHORT).show()
+            } else {
+                SaveSharedPreference.setAdsPref(this, false)
+                Toast.makeText(this, "Already Subscribed", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun onResume() {

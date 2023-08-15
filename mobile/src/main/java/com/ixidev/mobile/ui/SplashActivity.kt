@@ -6,6 +6,11 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
+import com.android.billingclient.api.BillingClient
+import com.android.billingclient.api.BillingClientStateListener
+import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.PurchasesUpdatedListener
+import com.android.billingclient.api.SkuDetailsParams
 import com.ixidev.data.logger.EVENT_EXTRACTS_DEVICE
 import com.ixidev.data.logger.EVENT_OPEN_APP
 import com.ixidev.data.logger.IAppLogger
@@ -20,6 +25,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.properties.Delegates
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
@@ -27,13 +33,52 @@ class SplashActivity : AppCompatActivity() {
     @Inject
     lateinit var logger: IAppLogger
     private var sdkInitCalled = false
-
+    private lateinit var billingClient: BillingClient
+    var subscribed = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         Log.d("tttttt", "Yodo1 MAS : Init SDKfffffff")
 
-        initMAS()
+        billingClient = BillingClient.newBuilder(this)
+            .setListener(purchaseUpdateListener)
+            .enablePendingPurchases()
+            .build()
+
+        billingClient.startConnection(object : BillingClientStateListener {
+            override fun onBillingSetupFinished(billingResult: BillingResult) {
+                if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                    // BillingClient is ready
+                    // You can now query for subscription status
+                    checkSubscriptionStatus()
+                }
+            }
+
+            override fun onBillingServiceDisconnected() {
+                // Handle the case where BillingClient connection is lost
+            }
+        })
+    }
+
+    private val purchaseUpdateListener = PurchasesUpdatedListener { billingResult, purchases ->
+        // Handle purchase updates here
+    }
+
+    private fun checkSubscriptionStatus() {
+        val params = SkuDetailsParams.newBuilder()
+            .setType(BillingClient.SkuType.SUBS)
+            .setSkusList(listOf("aylik_reklam"))
+            .build()
+
+        billingClient.querySkuDetailsAsync(params) { billingResult, skuDetailsList ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                if (skuDetailsList != null) {
+                    subscribed = skuDetailsList.any { it.sku == "aylik_reklam" }
+                }
+                initMAS()
+                // Now you can use the "subscribed" variable to determine subscription status
+            }
+        }
     }
 
     private fun initMAS() {
@@ -116,12 +161,22 @@ class SplashActivity : AppCompatActivity() {
                 EVENT_EXTRACTS_DEVICE to "mobile"
             )
         )
-        startActivity(
-            Intent(
-                this,
-                MobileMainActivity::class.java
+        if (subscribed) {
+            startActivity(
+                Intent(
+                    this,
+                    MobileMainActivity::class.java
+                )
             )
-        )
+        } else {
+            startActivity(
+                Intent(
+                    this,
+                    SubscribeActivity::class.java
+                )
+            )
+        }
+
         finish()
     }
 }

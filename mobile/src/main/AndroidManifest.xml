@@ -9,6 +9,9 @@
 
     <application>
         <activity
+            android:name=".ui.SubscribeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.playlistparser.PlayListParserActivity"
             android:theme="@style/Theme.Mobile" />
         <activity
@@ -23,8 +26,7 @@
             tools:targetApi="n" />
         <activity
             android:name=".ui.MobileSplashActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true">

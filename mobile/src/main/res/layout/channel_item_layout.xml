@@ -10,7 +10,7 @@
     app:cardCornerRadius="6dp"
     app:cardElevation="0dp"
     app:cardPreventCornerOverlap="true"
-    app:cardBackgroundColor="@color/cardBg"
+    app:cardBackgroundColor="?attr/cardBackgroundColor"
     app:contentPadding="0dp"
     >
 
