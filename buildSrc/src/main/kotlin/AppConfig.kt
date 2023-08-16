@@ -6,7 +6,7 @@ import java.util.*
  * Github : https://github.com/ixiDev
  */
 object AppConfig {
-
+// com.gsesmartiptv.smartiptv
     const val APP_PACKAGE_NAME = "com.iptvsmarterspro.iptvsmarterslite"
     const val APP_VERSION_NAME = "0.0.5.1"
     const val APP_NAME = "Smart IPTV"

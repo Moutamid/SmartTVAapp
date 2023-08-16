@@ -28,6 +28,7 @@
         <activity
             android:name=".ui.MobileSplashActivity"
             android:exported="false"></activity>
+
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true">
@@ -38,6 +39,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
+
+
         <activity
             android:name=".ui.settings.SettingsActivity"
             android:parentActivityName=".ui.main.MobileMainActivity"

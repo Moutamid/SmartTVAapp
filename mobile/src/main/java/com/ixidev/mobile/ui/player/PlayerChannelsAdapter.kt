@@ -6,6 +6,7 @@ import android.view.InflateException
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.text.parseAsHtml
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -45,6 +46,7 @@ class PlayerChannelsAdapter(
             selectedPosition = position
             holder.itemView.setBackgroundColor(Color.parseColor("#6371c7"))
         } else
+            holder.itemView.findViewById<TextView?>(R.id.channel_item_name).setTextColor(Color.parseColor("#FFFFFF"))
             holder.itemView.setBackgroundColor(Color.TRANSPARENT)
     }
 
@@ -65,3 +67,4 @@ class PlayerChannelsAdapter(
         notifyDataSetChanged()
     }
 }
+

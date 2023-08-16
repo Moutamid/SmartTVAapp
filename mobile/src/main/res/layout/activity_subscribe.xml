@@ -169,7 +169,7 @@
             android:onClick="subscribe"
             android:padding="15sp"
             android:text="Start Plan"
-            android:textColor="@color/white" />
+            android:textColor="?attr/colorOnSecondary" />
 
         <TextView
             android:layout_width="wrap_content"

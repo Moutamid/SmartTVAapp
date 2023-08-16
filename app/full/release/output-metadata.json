@@ -4,15 +4,15 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.gsesmartiptv.smartiptv",
+  "applicationId": "com.iptvsmarterspro.iptvsmarterslite",
   "variantName": "fullRelease",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 614688,
-      "versionName": "0.0.5.1",
+      "versionCode": 713770,
+      "versionName": "0.0.5.2",
       "outputFile": "app-full-release.apk"
     }
   ],
