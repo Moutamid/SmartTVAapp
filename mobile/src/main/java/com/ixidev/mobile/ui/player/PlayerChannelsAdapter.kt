@@ -1,13 +1,20 @@
 package com.ixidev.mobile.ui.player
 
 import android.graphics.Color
+import android.util.Patterns
+import android.view.InflateException
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.parseAsHtml
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.ixidev.data.model.MovieItem
 import com.ixidev.mobile.R
 import com.ixidev.mobile.databinding.ChannelItemLayoutBinding
+import com.ixidev.mobile.databinding.PlayerMenuChannelItemBinding
 import com.ixidev.mobile.ui.common.ChannelViewHolder
 import com.ixidev.mobile.ui.common.ChannelsAdapter
 import com.ixidev.mobile.ui.common.onMovieClickListener
@@ -26,19 +33,17 @@ class PlayerChannelsAdapter(
     private var selectedPosition = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ChannelViewHolder(
-            ChannelItemLayoutBinding.bind(
-                LayoutInflater.from(parent.context)
-                    .inflate(R.layout.player_menu_channel_item, parent, false)
-            )
-        )
+        val inflater = LayoutInflater.from(parent.context)
+        val rootView = inflater.inflate(R.layout.player_menu_channel_item, parent, false)
+        val binding = ChannelItemLayoutBinding.bind(rootView)
+        return ChannelViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         if (isItemSelected(position)) {
             selectedPosition = position
-            holder.itemView.setBackgroundColor(Color.parseColor("#43A047"))
+            holder.itemView.setBackgroundColor(Color.parseColor("#6371c7"))
         } else
             holder.itemView.setBackgroundColor(Color.TRANSPARENT)
     }

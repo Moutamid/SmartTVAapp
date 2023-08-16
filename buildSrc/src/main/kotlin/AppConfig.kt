@@ -7,7 +7,7 @@ import java.util.*
  */
 object AppConfig {
 
-    const val APP_PACKAGE_NAME = "com.gsesmartiptv.smartiptv"
+    const val APP_PACKAGE_NAME = "com.iptvsmarterspro.iptvsmarterslite"
     const val APP_VERSION_NAME = "0.0.5.1"
     const val APP_NAME = "Smart IPTV"
 

@@ -37,20 +37,6 @@ class SubscribeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window = window
-            window.statusBarColor = resources.getColor(R.color.white)
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                val controller = window.decorView.windowInsetsController
-                controller?.setSystemBarsAppearance(
-                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
-                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                )
-            }
-        }
-
         setContentView(R.layout.activity_subscribe)
 
         billingClient = BillingClient.newBuilder(this)

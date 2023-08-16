@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="?attr/colorPrimaryVariant"
+    android:theme="@style/Theme.Mobile"
     tools:context=".ui.SubscribeActivity">
 
     <ImageView
@@ -17,46 +18,47 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/btn_bg"
         android:foreground="?android:attr/selectableItemBackground"
-        android:padding="6sp"
         android:onClick="close"
+        android:padding="6sp"
         android:src="@drawable/ic_round_close_24"
+        app:tint="?attr/colorOnSecondary"
         tools:targetApi="m" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_above="@id/privacy"
-        android:layout_below="@id/close">
+        android:layout_below="@id/close"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="32sp"
-                android:includeFontPadding="false"
                 android:fontFamily="@font/poppins"
-                android:text="Smart "
                 android:gravity="center"
-                android:textColor="@color/black" />
+                android:includeFontPadding="false"
+                android:text="Smart "
+                android:textColor="?attr/colorOnSecondary"
+                android:textSize="32sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="32sp"
-                android:includeFontPadding="false"
                 android:fontFamily="@font/poppins_bold"
-                android:text="IPTV"
                 android:gravity="center"
-                android:textColor="@color/blueee" />
+                android:includeFontPadding="false"
+                android:text="IPTV"
+                android:textColor="@color/blueee"
+                android:textSize="32sp" />
 
         </LinearLayout>
 
@@ -64,27 +66,28 @@
             android:id="@+id/sub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:fontFamily="@font/poppins"
-            android:text="Unleash your best experience without Ads"
-            android:includeFontPadding="false"
-            android:gravity="center"
             android:layout_marginTop="6sp"
-            android:textColor="@color/black" />
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="Unleash your best experience without Ads"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:includeFontPadding="false"
-            android:fontFamily="@font/poppins"
-            android:text="Remove Ads"
+            android:layout_marginStart="10sp"
             android:layout_marginTop="25dp"
             android:drawableStart="@drawable/check_circle"
             android:drawablePadding="12sp"
-            android:layout_marginStart="10sp"
+            android:drawableTint="?attr/colorOnSecondary"
+            android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:textColor="@color/black" />
+            android:includeFontPadding="false"
+            android:text="Remove Ads"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="22sp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -97,19 +100,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:background="@drawable/stroke"
+                android:orientation="vertical"
                 android:padding="12sp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
                     android:fontFamily="@font/poppins"
-                    android:text="Start Your Monthly Plan Now"
-                    android:includeFontPadding="false"
                     android:gravity="start|center"
-                    android:textColor="@color/black" />
+                    android:includeFontPadding="false"
+                    android:text="Start Your Monthly Plan Now"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -120,22 +123,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
-                        android:includeFontPadding="false"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="$ 4.55"
                         android:gravity="center"
-                        android:textColor="@color/black" />
+                        android:includeFontPadding="false"
+                        android:text="$ 4.55"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:textSize="22sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:includeFontPadding="false"
                         android:fontFamily="@font/poppins"
-                        android:text="/month"
                         android:gravity="center"
-                        android:textColor="@color/black" />
+                        android:includeFontPadding="false"
+                        android:text="/month"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -146,39 +149,38 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:includeFontPadding="false"
-            android:fontFamily="@font/poppins"
-            android:text="You'll be charged automatically every month until you cancel."
+            android:layout_marginHorizontal="15dp"
             android:layout_marginTop="6sp"
             android:layout_marginBottom="15sp"
-            android:layout_marginHorizontal="15dp"
+            android:fontFamily="@font/poppins"
             android:gravity="start|center"
-            android:textColor="@color/black" />
+            android:includeFontPadding="false"
+            android:text="You'll be charged automatically every month until you cancel."
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="12sp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15sp"
-            android:background="@drawable/btn_bg"
-            android:backgroundTint="@color/blueee"
             android:layout_marginHorizontal="15sp"
-            android:text="Start Plan"
-            android:onClick="subscribe"
-            android:textColor="@color/white"
+            android:background="@drawable/btn_bg_remove"
             android:fontFamily="@font/poppins_bold"
-            android:includeFontPadding="false" />
+            android:includeFontPadding="false"
+            android:onClick="subscribe"
+            android:padding="15sp"
+            android:text="Start Plan"
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:includeFontPadding="false"
-            android:fontFamily="@font/poppins"
-            android:text="Cancel Anytime"
             android:layout_marginTop="6sp"
+            android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:textColor="@color/black" />
+            android:includeFontPadding="false"
+            android:text="Cancel Anytime"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -196,7 +198,7 @@
         android:includeFontPadding="false"
         android:onClick="openPrivacy"
         android:text="@string/check_our_privacy_policy"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="16sp" />
 
 

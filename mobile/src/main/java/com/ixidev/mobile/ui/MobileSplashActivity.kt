@@ -3,6 +3,11 @@ package com.ixidev.mobile.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.os.bundleOf
+import com.android.billingclient.api.BillingClient
+import com.android.billingclient.api.BillingClientStateListener
+import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.PurchasesUpdatedListener
+import com.android.billingclient.api.SkuDetailsParams
 import com.ixidev.data.AbstractSplashActivity
 import com.ixidev.data.logger.EVENT_EXTRACTS_DEVICE
 import com.ixidev.data.logger.EVENT_OPEN_APP
@@ -26,10 +31,51 @@ class MobileSplashActivity : AbstractSplashActivity() {
 
     @Inject
     lateinit var logger: IAppLogger
-
+    private var sdkInitCalled = false
+    private lateinit var billingClient: BillingClient
+    var subscribed = false
     override fun openMain() {
         //gotoMobileMainActivity()
-        initMAS() // Yodo1
+        billingClient = BillingClient.newBuilder(this)
+            .setListener(purchaseUpdateListener)
+            .enablePendingPurchases()
+            .build()
+
+        billingClient.startConnection(object : BillingClientStateListener {
+            override fun onBillingSetupFinished(billingResult: BillingResult) {
+                if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                    // BillingClient is ready
+                    // You can now query for subscription status
+                    checkSubscriptionStatus()
+                }
+            }
+
+            override fun onBillingServiceDisconnected() {
+                // Handle the case where BillingClient connection is lost
+            }
+        })
+    }
+
+
+    private val purchaseUpdateListener = PurchasesUpdatedListener { billingResult, purchases ->
+        // Handle purchase updates here
+    }
+
+    private fun checkSubscriptionStatus() {
+        val params = SkuDetailsParams.newBuilder()
+            .setType(BillingClient.SkuType.SUBS)
+            .setSkusList(listOf("aylik_reklam"))
+            .build()
+
+        billingClient.querySkuDetailsAsync(params) { billingResult, skuDetailsList ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                if (skuDetailsList != null) {
+                    subscribed = skuDetailsList.any { it.sku == "aylik_reklam" }
+                }
+                initMAS()
+                // Now you can use the "subscribed" variable to determine subscription status
+            }
+        }
     }
 
     private fun initMAS() {
@@ -39,7 +85,7 @@ class MobileSplashActivity : AbstractSplashActivity() {
         Yodo1Mas.getInstance().setGDPR(true)
         Yodo1Mas.getInstance().setCCPA(false)
 //iRPCQKh8fo
-        Yodo1Mas.getInstance().init(this, "9lKCKx3Twn", object : Yodo1Mas.InitListener {
+        Yodo1Mas.getInstance().init(this, "GspQJ5Lwqr", object : Yodo1Mas.InitListener {
             override fun onMasInitSuccessful() {
                 print("Yodo1 MAS : SDK initialized")
                 if (SaveSharedPreference.showAds(this@MobileSplashActivity)) {
@@ -100,12 +146,21 @@ class MobileSplashActivity : AbstractSplashActivity() {
                 EVENT_EXTRACTS_DEVICE to "mobile"
             )
         )
-        startActivity(
-            Intent(
-                this,
-                MobileMainActivity::class.java
+        if (subscribed) {
+            startActivity(
+                Intent(
+                    this,
+                    MobileMainActivity::class.java
+                )
             )
-        )
+        } else {
+            startActivity(
+                Intent(
+                    this,
+                    SubscribeActivity::class.java
+                )
+            )
+        }
         finish()
     }
 

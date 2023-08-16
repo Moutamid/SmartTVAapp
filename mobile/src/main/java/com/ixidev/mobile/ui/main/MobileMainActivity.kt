@@ -48,6 +48,7 @@ import com.ixidev.data.common.openPlayStore
 import com.ixidev.data.common.rateApp
 import com.ixidev.data.logger.*
 import com.ixidev.data.model.MenuPlayListItem
+import com.ixidev.mobile.Constant
 import com.ixidev.mobile.R
 import com.ixidev.mobile.databinding.ActivityMobileMainBinding
 import com.ixidev.mobile.di.DrawerItemsProvider
@@ -110,6 +111,7 @@ MobileMainActivity : AppCompatActivity(R.layout.activity_mobile_main) {
         }
 
         setSupportActionBar(mainBinding.toolbar)
+        Constant.checkApp(this)
         inAppUpdate()
         setupMenuDrawer(savedInstanceState)
         setupNavController()

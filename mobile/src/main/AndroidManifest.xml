@@ -10,6 +10,7 @@
     <application>
         <activity
             android:name=".ui.SubscribeActivity"
+            android:theme="@style/Theme.Mobile"
             android:exported="false" />
         <activity
             android:name=".ui.playlistparser.PlayListParserActivity"

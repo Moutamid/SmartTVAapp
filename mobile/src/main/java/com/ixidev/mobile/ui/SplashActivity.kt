@@ -100,7 +100,7 @@ class SplashActivity : AppCompatActivity() {
         Yodo1Mas.getInstance().setGDPR(true)
         Yodo1Mas.getInstance().setCCPA(false)
 //iRPCQKh8fo
-        Yodo1Mas.getInstance().init(this, "9lKCKx3Twn", object : Yodo1Mas.InitListener {
+        Yodo1Mas.getInstance().init(this, "GspQJ5Lwqr", object : Yodo1Mas.InitListener {
             override fun onMasInitSuccessful() {
                 Log.d("tttttt", "Yodo1 MAS : SDK initialized")
                 sdkInitCalled = true
